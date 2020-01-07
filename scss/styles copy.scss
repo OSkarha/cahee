@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900&display=swap');
+
+@import 'normalize';
+@import 'mixins';
+
+$text: #262626;
+$text-white:#fff;
+$accent: #ff6033;
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100%;
+    font: 1.7rem/1.6 'Raleway', sans-serif;
+    color: $text;
+    
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1180px;
+    width: 96%;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+h1, h2,h3{
+    margin: 3rem 0;
+}
+
+p{
+    padding-bottom: 20px;
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 45px;
+
+    & a{
+        @include hover{
+            transform: scale(1.1);
+        }
+    }
+}
+
+.menu{
+    padding: 0;
+    list-style: none;
+
+    &__item{
+        display: inline-block;
+        margin-left: 3.6rem;
+    }
+
+    &__link{
+        @include text(inherit, inherit, 1.6rem, 700, 1.5);
+        border-top: 2px solid transparent;
+        padding-top: 8px;
+        text-transform: uppercase;
+
+        @include hover{
+            border-color: $accent;
+        }
+    }
+}
+
+.cover{
+    height: 100vh;
+    color: $text;
+    background-color: #eae7e8;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    
+    align-items: center;
+
+     &__content{
+    max-width: 400px;
+    }
+
+     &__title{
+    @include text(inherit, inherit, 6rem, 900, 1)
+    }
+
+    &__text{
+    @include text(inherit, inherit, 1.7rem, 300, 1.6)
+    }
+
+    &__scroll{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        bottom: 70px;
+        
+        svg{
+            fill: $text;
+            @include tr();
+        }
+        @include hover{
+            svg{
+                fill: $accent;
+            }
+        }
+    }
+
+    
+
+    
+
+}
+
+
+
+.btn{
+    @include text($text-white, inherit, 2rem, 300, 1.3);
+    background-color: $accent;
+    border: 2px solid $accent;
+    padding: 1.6rem;
+    text-decoration: none;
+    transition: all .25s ease-in-out;
+    display: inline-block;
+    min-width: 300px;
+    margin: 3rem 0;
+
+    @include hover{
+        color: $accent;
+        background-color: transparent;
+    }
+}
+
+
+.section{
+
+    &__image{
+        width: 50%;
+        overflow: hidden;
+
+    }
+    &__img{
+        width: 100%;
+    }
+
+
+    &--about{
+        background-color: #00b8b8;
+        padding: 70px 0;
+    }
+
+    &__name{
+        @include text($text-white, inherit, 9rem, 700, 1);
+    }
+
+    &__content{
+        width: 45%;
+    }
+
+
+
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.light-color{
+    color: $text-white;
+}
+

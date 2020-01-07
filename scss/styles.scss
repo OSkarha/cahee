@@ -1,0 +1,564 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900&display=swap');
+
+@import 'normalize';
+@import 'mixins';
+
+$text: #262626;
+$text-white:#fff;
+$accent: #ff6033;
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100%;
+    font: 1.7rem/1.6 'Raleway', sans-serif;
+    color: $text;
+    
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1180px;
+    width: 96%;
+}
+
+a,li{
+    text-decoration: none;
+    list-style: none;
+}
+
+
+
+h1, h2,h3{
+    margin: 0 0 3rem;
+}
+
+p{
+    padding-bottom: 20px;
+    margin: 0;
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 45px;
+
+    & a{
+        @include hover{
+            transform: scale(1.1);
+        }
+    }
+}
+
+.menu{
+    padding: 0;
+    list-style: none;
+
+    &__item{
+        display: inline-block;
+        margin-left: 3.6rem;
+    }
+
+    &__link{
+        @include text(inherit, inherit, 1.6rem, 700, 1.5);
+        border-top: 2px solid transparent;
+        padding-top: 8px;
+        text-transform: uppercase;
+
+        @include hover{
+            border-color: $accent;
+        }
+    }
+}
+
+.cover{
+    height: 100vh;
+    color: $text;
+    background-color: #eae7e8;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    
+    align-items: center;
+
+     &__content{
+    max-width: 400px;
+    }
+
+     &__title{
+    @include text(inherit, inherit, 6rem, 900, 1)
+    }
+
+    &__text{
+    @include text(inherit, inherit, 1.7rem, 300, 1.6);
+        
+        &--50{
+            width: 50%;
+        }
+
+        &--30{
+            width: 30%;
+        }
+
+    }
+
+    &__scroll{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        bottom: 70px;
+        
+        svg{
+            fill: $text;
+            @include tr();
+        }
+        @include hover{
+            svg{
+                fill: $accent;
+            }
+        }
+    }  
+}
+
+.btn{
+    @include text($text-white, inherit, 2rem, 300, 1.3);
+    background-color: $accent;
+    border: 2px solid $accent;
+    padding: 1.6rem;
+    text-decoration: none;
+    transition: all .25s ease-in-out;
+    display: inline-block;
+    min-width: 300px;
+    margin: 3rem 0;
+    text-transform: uppercase;
+
+    &--gray{
+        background-color: #5585a2;
+        border: 2px solid #5585a2;
+       
+    }
+
+    &--green{
+        background-color: #96b92c;
+        border: 2px solid #96b92c;
+        box-shadow: 0px 5px 5px 0px rgba(35, 70, 133, 0.28); 
+    }
+
+    @include hover{
+        color: inherit;
+        background-color: transparent;
+    }
+
+    &--green{
+        background-color: #96b92c;
+        border: 2px solid #96b92c;
+        box-shadow: 0px 5px 5px 0px rgba(35, 70, 133, 0.28); 
+    }
+
+    &--red{
+        background-color: #f72b3b;
+        border: 2px solid #f72b3b;
+    }
+}
+
+.section{
+    padding: 70px 0;
+
+    &__image{
+        width: 50%;
+        overflow: hidden;
+        &--services{                  
+       position: relative;
+        }
+    }
+
+    &__img{
+        width: 100%;
+
+        &--services{
+            width: 70%;
+            // position: relative;
+        }
+    }
+
+    &__about{
+        background-color: #00b8b8;
+    }
+
+    &__services{
+        background-color: #70bfff;
+    }
+
+    &__gallery{
+        background-color: #ffe92f;
+    }
+
+    &__subscribe{
+        background-image: url(../img/subscribe.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;  
+    }
+
+    &__contact{
+        background-image: url(../img/bg-footer.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;  
+        
+        & ul{
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+
+    &__blog{
+        background-color: #b07cf7;
+    }
+
+    &__name{
+        @include text($text-white, inherit, 9rem, 700, 1);
+        &--services{
+            position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);                                
+        }
+
+        &--small{
+            font-size: 4rem;
+
+        }
+    }
+
+    &__content{
+        width: 45%;
+    }
+
+    &__list {
+        text-align: center;
+    }
+    &__line{
+        background-color: #fff;
+        height: 100px;
+        margin: 10px auto;
+        width: 80%;
+    }
+
+    &__link{
+        vertical-align: middle;
+        height: 100%;
+
+        @include hover{
+            .section__part{
+                color: $accent;
+            }
+            .section__svg svg{
+                fill: $accent;
+            }
+        }
+    }
+   
+    &__svg svg{
+        vertical-align: middle;
+       @include posCenter;
+       fill: rgb(38, 38, 38); 
+    }
+
+    &__svg{
+        border-left: 1px solid #9d9d9d; 
+        width: 25%;
+        vertical-align: middle;
+        text-align: center;
+        height: 100%;
+        position: relative;
+    }
+    
+    &__part{
+        @include text($text, inherit, 2rem, 400, 1.6);
+        width: 80%;
+        padding: 20px;
+        text-align: center; 
+    }
+
+    &__wrap{
+        display: grid;
+        grid-auto-flow: dense;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: 260px 260px 404px;
+        grid-gap: 30px;
+        margin: 30px 0;
+
+    }
+
+    &__foto{
+        display: block;
+        width: 100%;
+        height: 100%;
+        @include hover{
+            box-shadow: 0px 26px 49px 0px rgba(35, 70, 133, 0.4); 
+        }
+
+        &-img{
+            width: 100%;
+            height: 100%
+        }
+    }
+
+    &__input{
+        @include text($text, inherit, 1.5rem, 300, 1.8);
+        border: 2px solid #939393;
+        padding: 1.6rem;
+        
+        transition: all .25s ease-in-out;
+        display: inline-block;
+        width: 400px; 
+        margin-right: 30px;
+    }
+   
+    &__input:focus{    
+        outline: none;
+        border-color: #96b92c;
+    }
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--left{
+        justify-content: left;
+    }
+
+    &--top{
+        display: flex;
+    justify-content: space-between;
+        vertical-align: top;
+        margin: 40px 0;
+    }
+
+}
+
+.light-color{
+    color: $text-white;
+}
+
+.dark-color{
+    color: $text;
+}
+
+
+.center{
+    text-align: center;
+    margin: auto;
+    
+}
+
+.col-bg{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+ }
+
+.col-2{
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 1;
+
+    &--row2{
+        grid-row-start: 2;
+    }
+}
+
+.row3{
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-column-end: 4;
+
+    &--col2{
+        grid-column-start: 4;
+        grid-column-end: 7;
+    }
+}
+
+.blogs{
+    margin: 50px 0;
+}
+
+.blog{
+    width: 31%;
+    height: 310px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    
+     background: linear-gradient(to top, rgba(15, 15, 15, 0.753) 0%, rgba(65, 64, 64, 0.753) 30%, rgba(255, 255, 255, 0.486) 100%);
+    z-index: 2;
+
+    & .blog__imgwrap{
+        flex-basis: 100%; 
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;  
+       
+
+    }
+
+    &__img{
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;  
+        background: linear-gradient(to top, rgba(15, 15, 15, 0.753) 0%, rgba(65, 64, 64, 0.753) 30%, rgba(255, 255, 255, 0.486) 100%);
+        z-index: 2;
+    }
+
+
+    &__content{
+        padding: 30px;
+        flex: 1 0 auto;
+        
+    }
+
+    
+
+    &__date{
+        @include text($text-white, inherit, 3.2rem, 700, 1);
+        position: absolute;
+        top: 8%;
+        left: 8%;
+        background: #26262667;
+        padding: 5px;
+        border-radius: 5px;
+        display: inline-block;
+        text-transform: uppercase;
+        width: 8rem;
+        height: 8rem;
+    }
+
+    &__title a{
+        @include text($text-white, inherit, 2rem, 700, 1.3);
+        padding: 5px; 
+        text-align: left;
+        position: absolute;
+        left: 8%;
+        bottom: 20%;
+        max-height: 8.9rem;
+        overflow: hidden;
+
+        @include hover{
+            color: #f72b3b;
+        }
+    }
+
+    &__author {
+        @include text($text-white, inherit, 1.3rem, 300, 2); 
+        padding: 5px; 
+        text-align: left;
+        position: absolute;
+        left: 8%;
+        bottom: 5%;
+    }
+
+    &__author a{
+        @include text($text-white, inherit, 1.3rem, 300, 2); 
+
+        @include hover{
+            color: #f72b3b;
+        }
+        
+    }
+
+}
+
+.contacts{
+    width: 100%;
+    text-align: left;
+}
+
+.contact{
+    margin: 9px;
+    &__title{
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &__subtitle{
+        padding: 0;
+        color: $text;
+    }
+
+}
+
+.form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    &__input{
+        background-color: rgba(0, 196, 196, 0.5);
+        border: none;
+        outline: none;
+        padding: 20px;
+        margin: 9px;
+        color: $text-white;
+        
+        &::placeholder{
+            color: $text-white;
+        }
+    
+        @include hover{
+            color: $text-white;
+            background-color: rgb(0, 196, 196);
+            font-weight: 700;
+            border-left: 5px solid #355b82;
+        }
+    }
+    
+
+}
+
+footer{
+    background-color: $text;
+    padding: 3rem 0;
+    color: #b9b9b9;
+
+    &__right{
+        font-size: 1.6rem;
+        line-height: 1.7;
+    }
+
+    &__author{
+        font-size: 1.5rem;
+        line-height: 1.7;
+
+    }
+    
+    & svg{
+        fill: #9b9b9b;
+    }
+}
+
+span.footer__author--love{
+    color: #ff2b58;
+}
+
